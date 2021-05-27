@@ -1,3 +1,5 @@
+
+
 .container{
     display: grid;
     grid-template-columns: 150px 500px 150px;
@@ -16,7 +18,7 @@
 
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(30%, auto));
-	grid-template-rows: repeat(3, minmax(100px,auto));
+	grid-template-rows: repeat(3, minmax(150px,auto));
 	grid-auto-flow: dense;
     align-items: stretch;
     justify-items: stretch;
@@ -38,7 +40,23 @@
     background-image: url("./html5.png");
     background-size: cover;
 }
-
+figcaption {
+    color: #fff;
+    background: rgba(55, 55, 55, 0.5);
+    padding: 1em;
+    line-height: 1;
+    
+    
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+  figure {
+    margin: 0;
+    line-height: 0;
+    
+    position: relative;
+}
 .wrapper{width:1100px; margin:0 auto;}
 .clearfix{content: ''; display: block; clear: both;}
 h1{line-height: 75px; float: left;}
