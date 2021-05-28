@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용자 갤러리 성향 분석을 통한 프로필 사진 및 배경 추천</title>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <header>
+        <center>
+            <h1>&lt; 갤러리에서 사진을 넣어주세요 &gt;</h1>
+        </center>
+    </header>
+    <section>
+        <article>
+            <tbody></tbody>
+        </article>
+    </section>
+    <footer>
+        
+    </footer>
+    <script>
+        function method(){
+            var table="";
+            var tbody = document.querySelector('tbody');
+            for(var i=0;i<6;i++){
+                table = '<tr>';
+                var htmladd = '<td>';
+                    htmladd += '&num;';
+                    htmladd += i;
+                    htmladd += `<button type="submit" name="id" value=${i}>`;
+                    htmladd += i;
+                    htmladd += '</button></td>';
+                    table += htmladd;
+                    table += '</tr>';
+                document.write(table, tbody);
+            }
+            
+            
+        }
+        method();
+
+    </script>
+</body>
+</html>

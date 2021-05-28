@@ -1,0 +1,17 @@
+doctype html
+head
+    meta(charset="utf-8")
+    meta(name="viewport",content="width=device-width, initial-scale=1.0")
+body
+    script(src="https://code.jquery.com/jquery-3.6.0.min.js", integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=", crossorigin="anonymous")
+    p#add inside paragraph
+    div(class="container")
+        span(href="#skin" target="if_sidebar")블로그스킨바꾸기
+    sidebar
+        iframe(width="400" height="250" name="if_sidebar" frameborder="0")
+    script.
+        var skinName = "#{skinName}";
+        function method(){
+            $("#add").innerHTML = skinName;
+        }
+        method();
