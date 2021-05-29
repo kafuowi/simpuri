@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>제부분의 MainPage입니다</title>
+    <script type="text/javascript"
+        src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId="></script>
+    <style>
+        header {
+            position: static;
+            border-style: 1px dashed brown;
+            background-color: bisque;
+        }
+
+        sidebar {
+            position: relative;
+            left: 300px;
+            top: 0px;
+            border: 1px dotted red;
+            background-color: rgba(140, 185, 151, 0.486);
+            width: 400px;
+            height: 250px;
+        }
+
+        #photo {
+            border: 1px solid black;
+            background: yellow;
+            width: 100px;
+            height: 100px;
+        }
+
+        #photo:hover {
+            transform-origin: 50% 50% 0px;
+            transform: translate(0px, 0px) rotate(-45deg) scale(0.7);
+            background: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <header>
+        <center>
+            <h1>&lt; 갤러리에서 사진을 넣어주세요 &gt;</h1>
+        </center>
+        <tbody></tbody>
+    </header>
+    <p id="photo">
+        hellozzhing
+    </p>
+
+    <div id="total" style="border-style: 3px solid brown;">
+        <div id="expression">
+            사진 업로드 중입니다...
+            <p class="showImages">
+            <a id="changeimage" href="#imagetoa" target="if_sidebar">사진이 밑의 공간에 들어옵니다</a>
+            <iframe width="400" height="250" name="if_sidebar" frameborder="0">
+                
+            </iframe>
+            <!--<% addPhoto.forEach(function(elements){ %>
+            <span style="background-image: url('<%= elements %>')"></span>
+            <% }) %>-->
+            <ol>
+                <% photopost.forEach(function(elements){ %>
+                <image src='<%= elements.name %>' width="300px" height="200px" id="imagetoa"/>
+                <span><%= elements.location %></span>
+                <span><%= elements.category %></span>
+                <% }) %>
+            </ol>
+            </p>
+            <div class="container">
+                
+                <p>
+                    <a href="#skin" target="if_sidebar">블로그스킨바꾸기</a>
+                </p>
+                <p id="skin" style="background-color:aquamarine;width:300px;height:250px;">
+                    hellozzhing
+                </p>
+            </div>
+            <sidebar>
+                <span id="skins">
+                    <form action="/idx" method="POST">
+                        <input type="color" name="color_value" value="#0000ff" />
+                        <input type="submit" value="선택완료" />
+                    </form>
+                </span>
+                <!--<iframe width="400" height="250" name="if_sidebar" frameborder="0"></iframe>-->
+                <div id="map" style="width:100vh;height:400px;"></div>
+            </sidebar>
+
+        </div>
+    </div>
+    <script>
+        function method() {
+            var table = "";
+            //var tbody = document.querySelector('tbody');
+            //var label = document.getElementById('insertHere');
+            var p = document.getElementById('skin');
+            for (var i = 0; i < 6; i++) {
+                table += '<form action="/photo/store" method="post" enctype="multipart/form-data">';
+                table += '<label id="insertHere">';
+                table += '<h1>&lt; 갤러리에서 사진을 넣어주세요 &gt;</h1>';
+                table += '<tr>';
+                var htmladd = '<td>';
+                htmladd += '&num;';
+                htmladd += i;
+                htmladd += '<input type="file" id="image" name="image"/><p/>';
+                htmladd += '<select name="locations" id="locations">';
+                htmladd += '<option value="1" selected>Seoul</option>';
+                htmladd += '<option value="2">Gwanju</option>';
+                htmladd += '</select><p/>';
+                htmladd += '<select name="categories" id="categories">';
+                htmladd += '<option value="1" selected>LOVE</option>';
+                htmladd += '<option value="2">FAMILY</option>';
+                htmladd += '</select><p/>';
+                htmladd += '<button type="submit" name="image_btn" value="img_upload" id="id_btn">';
+                htmladd += 'img_upload';
+                htmladd += '</button>'
+                htmladd += `<button type="button" name="btn_id" id="id_" value=${i}>`;
+                htmladd += i;
+                htmladd += '</button></td>';
+                htmladd += '<td>';
+                htmladd += '<button type="button" name="fadeOutbtn" id="fadeOutbtn" value="업로드버튼">';
+                htmladd += 'fadeOutbtn';
+                htmladd += '</button></td>';
+                table += htmladd;
+                table += '</tr>';
+                table += '<tr>';
+                table += '<p id="insertThere">hellozzhingzzhing';
+                table += '</p>';
+                table += '</tr>';
+                table += '</label>';
+                table += '</form>';
+                document.write(table, p);
+                //$('p#skin').after(table);
+            }
+        }
+        method();
+        function method2(value) {
+            
+            document.getElementById("id_btn").onclick = () => {
+                console.log('hello');
+                const select = document.querySelector("select[name='locations']");
+                const value = select.value;
+                const option = select.querySelector(`option[value='${value}']`);
+                const text = option.innerText;
+                console.log(text);
+            }
+        }
+        //async function method3(){
+        //    let promise = method();
+        //    let value = await promise;
+        //    method2(value)
+        //}
+        //method3();
+        //function showImg() {
+        //    document.getElementsByClassName('showImages').innerHTML = '<ul><% photopost.forEach(function(elements){%><li><%= elements.location %></li><li><%= elements.category %></li><% }) %></ul>';
+        //}
+        //showImg();
+        function showImg_pre() {
+            //var list = "#{photopost}";
+            //console.log('index.ejs');
+            //console.log(list);
+            for (var i in list) {
+                var html = '<td>';
+                html += list[i].location;
+                html += '</td>';
+                html += '<td>'
+                html += list[i].category;
+                html += '<td>';
+                //document.querySelector('.showImages').append(html);
+            }
+        }
+        //showImg_pre();
+    </script>
+    <script>
+
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $("#chageSkin").click(function () {
+                $("#container").css('background-color', 'red');
+            });
+        });
+    </script>
+    <script>
+        var mapOptions = {
+            center: new naver.maps.LatLng(37.3595704, 127.105399),
+            zoom: 10
+        };
+
+        var map = new naver.maps.Map('map', mapOptions);
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#id_').click(function () {
+                $('header').fadeOut(2500, function () {
+                    $('.showImages').fadeIn(2500);
+                });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#fadeOutbtn').click(function () {
+                $('#total').fadeOut(2500, function () {
+                    $('#expression').fadeIn(2500);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
