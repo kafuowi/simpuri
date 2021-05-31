@@ -1,0 +1,31 @@
+header{
+    position: static;
+    background-color:blue;
+    width: 300px;
+    height: 250px;
+}
+sidebar{
+    position: relative;
+    left: 30px;
+    top:-10px;
+    visibility: hidden;
+    border: 1px dotted red;
+    width: 400px;
+    height: 200px;
+}
+sidebar.hover{
+    visibility: visible;
+   color: red; 
+}
+#skin{
+    visibility: hidden;
+    border: 1px solid brown;
+    width: 200px;
+    height: 100px;
+}
+#skin.hover{
+    visibility: visible;
+    border: 1px solid brown;
+    width: 200px;
+    height: 100px;
+}
