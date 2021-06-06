@@ -1,0 +1,105 @@
+table{
+    border: 2px solid ;
+}
+th, td{
+    border: 1px solid;
+    height: 20px;
+}
+
+#vs{
+    margin: 0 auto;
+}
+
+.container{
+    display: grid;
+    
+    margin: 0 auto;
+    grid-template-columns: 200px;
+    grid-template-rows: auto;
+    width: fit-content;
+    height: fit-content;
+}
+.item{
+    background-color: lightgray;
+    margin: 5px;
+}
+.contentContainer{
+    grid-template-columns: 500px 50px 500px;
+    display: grid;
+    /*grid-template-columns: repeat(auto-fill, minmax(30%, auto));*/
+	grid-template-rows: 400px; 
+	grid-auto-flow: dense;
+    align-items: stretch;
+    justify-items: stretch;
+    
+}
+.item:nth-child(1) {
+	/* 1번 라인에서 2칸 */
+	grid-column: 1 / span 3;
+}
+
+.classification{
+    margin: 5px;
+}
+
+.contents{
+    
+    margin: 0 auto;
+    margin : 3px;
+    border-style:solid;
+    border-color: teal;
+    border-width: 2px;
+    background-image: url("./html5.png");
+    background-size: cover;
+}
+figcaption {
+    color: #fff;
+    background: rgba(55, 55, 55, 0.5);
+    padding: 1em;
+    line-height: 1;
+    
+    
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+  figure {
+    margin: 0;
+    line-height: 0;
+    
+    position: relative;
+}
+.wrapper{width:1100px; margin:0 auto;}
+.clearfix{content: ''; display: block; clear: both;}
+h1{line-height: 75px; float: left;}
+.menu{float:right;}
+.menu li{float: left;}
+
+.menu a{line-height: 75px;  padding: 0 15px; display:block;}
+#topMenu {            
+    height: 30px; 
+    width: 800px; 
+}
+#topMenu ul li {                     
+    list-style: none;           
+    float: right;                
+    line-height: 30px;          
+    vertical-align: middle;     
+    text-align: center;         
+}
+#topMenu .menuLink {                               
+    text-decoration:none;    
+   color: gray;                            
+    display: block;                            
+    width: 150px;                              
+    font-size: 12px;                          
+    font-weight: bold;                         
+    
+}
+#topMenu .menuLink:hover {           
+    color: red;                   
+    
+}
+#vs{
+    
+}
