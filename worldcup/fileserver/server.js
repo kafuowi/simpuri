@@ -4,7 +4,7 @@ var app = express();
 
 var mongojs = require('mongojs'); // MongoDB 연결 해야되니 MongoJS 모듈도 추가
 
-var db = mongojs('genie', ['images']); // 여기서 genie는 database 이름이고 images테이블을 사용할꺼라고 선언
+var db = mongojs('worldcup', ['images']); // 여기서 genie는 database 이름이고 images테이블을 사용할꺼라고 선언
 
 var bodyParser = require('body-parser'); // json 형태로 파싱할꺼니까 모듈 추가
 
@@ -28,7 +28,7 @@ app.set('view engine', 'ejs'); // ejs를 html로 바꿔주면 html로 파일 실
 
 app.get('/', function (req, res) { // 웹에서 실행할 주소가 localhost:3000/ 이거일때를 선언
 
-    res.render('index'); // index.ejs로 써도 되고 index만 써도 파일 실행을 해줍니다.
+    res.render('worldcup'); // index.ejs로 써도 되고 index만 써도 파일 실행을 해줍니다.
 
 });
 
